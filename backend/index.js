@@ -89,17 +89,17 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-// MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(() => {
-    console.log('Connected to MongoDB');
-  }).catch((err) => {
-    console.error('MongoDB connection error:', err);
-  });
+// // MongoDB connection
+// mongoose.connect(process.env.MONGODB_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   }).then(() => {
+//     console.log('Connected to MongoDB');
+//   }).catch((err) => {
+//     console.error('MongoDB connection error:', err);
+//   });
   
-  // Check mongoose connection status
-  const db = mongoose.connection;
-  db.on('error', (err) => console.error('MongoDB connection error:', err));
-  db.once('open', () => console.log('MongoDB connected successfully'));
+//   // Check mongoose connection status
+//   const db = mongoose.connection;
+//   db.on('error', (err) => console.error('MongoDB connection error:', err));
+//   db.once('open', () => console.log('MongoDB connected successfully'));
