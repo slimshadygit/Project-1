@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 // Use CORS middleware with options
 const corsOptions = {
-  origin: 'http://127.0.0.1:5500',  // Frontend URL
+  origin: 'https://slimshadygit.github.io/Project-1/frontend/',  // Frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed HTTP headers
 };
