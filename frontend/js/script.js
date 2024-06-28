@@ -120,7 +120,7 @@ document.getElementById('counsellingForm').addEventListener('submit', async (eve
   event.preventDefault();
   const formData = new FormData(event?.target);
   try {
-      const response = await fetch('http://localhost:5000/api/counsellingform', {
+      const response = await fetch('https://project-1-tuqh.onrender.com/api/counsellingform', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ document.getElementById('counsellingForm').addEventListener('submit', async (eve
  // Function to handle registration form submission
  const register = async (username, email, password) => {
   try {
-      const response = await fetch('http://localhost:5000/api/users/register', {
+      const response = await fetch('https://project-1-tuqh.onrender.com/api/users/register', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ document.getElementById('counsellingForm').addEventListener('submit', async (eve
 // Function to handle login form submission
 const login = async (email, password) => {
   try {
-      const response = await fetch('http://localhost:5000/api/users/login', {
+      const response = await fetch('https://project-1-tuqh.onrender.com/api/users/login', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -227,7 +227,7 @@ document.getElementById('contactForm').addEventListener('submit', async (event) 
   const data = Object.fromEntries(formData.entries());
 
   try {
-    const response = await fetch('http://localhost:5000/api/contactform', {
+    const response = await fetch('https://project-1-tuqh.onrender.com/api/contactform', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
