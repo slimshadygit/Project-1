@@ -158,6 +158,7 @@ document.getElementById('counsellingForm').addEventListener('submit', async (eve
   }
 };
 
+
 // Function to handle login form submission
 const login = async (email, password) => {
   try {
@@ -170,18 +171,23 @@ const login = async (email, password) => {
       });
 
       if (!response.ok) {
-          throw new Error('Login failed');
+        const errorData = await response.text();
+        throw new Error(` ${errorData}`);
       }
-
+  
       const data = await response.json();
-      alert(`Login successful!`); // Alert the token
+      alert('Login successful');
+      console.log('Login successful:', data);
+  
+      
 
       // Show logout button and hide login form
       document.getElementById('loginForm').style.display = 'none';
       document.getElementById('signIn').style.display = 'none';
       document.getElementById('logoutButton').style.display = 'block';
   } catch (error) {
-      console.error('Login failed:', error.message);
+    console.error('Login failed:', error.message);
+    alert('Login failed: ' + error.message);
   }
 };
 
