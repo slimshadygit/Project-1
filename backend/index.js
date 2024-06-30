@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 // Use CORS middleware with options
 const corsOptions = {
-  origin: 'https://main--dreamxcareer.netlify.app',  // Frontend URL
+  origin: 'https://kavibalaji3.github.io/DX/index.html',  // Frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed HTTP headers
 };
@@ -28,9 +28,9 @@ console.log('MONGODB_URI:', process.env.MONGODB_URI);  // Added this line for de
 
 
 // Twilio credentials
-const accountSid = 'AC6f28df22598826c72249eff3120120c4';
-const authToken = '6063fdbcc11f65a19b48dc5a896f2a8a';
-const serviceSid = 'VA67524c6cf96d1a20e1ca2470891b73a3'; // Replace with your Verify Service SID
+const accountSid = 'ACed903e57b6c388f500c5e34f6eff2012';
+const authToken = '94ee67cbb06b337ff305539de7f09a82';
+const serviceSid = 'VAcfd1abaa669c80481f5d2196ab9ee0ab'; // Replace with your Verify Service SID
 
 const client = twilio(accountSid, authToken);
 
