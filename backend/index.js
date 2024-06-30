@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 // Use CORS middleware with options
 const corsOptions = {
-  origin: 'https://kavibalaji3.github.io/DX/index.html',  // Frontend URL
+  origin: 'https://kavibalaji3.github.io/DX',  // Frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed HTTP headers
 };
