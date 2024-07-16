@@ -49,7 +49,7 @@ const transporter = nodemailer.createTransport({
 app.post('/contactForm', async (req, res) => {
   const { name, email, phone, message } = req.body;
   try {
-    await sendContactFormEmail(name, email, phone, message);
+    await sendContactFormEmail(name, email, phone, subject, message);
     res.status(200).json({ message: 'Message sent successfully' });
   } catch (error) {
     console.error('Error sending message:', error.message);
