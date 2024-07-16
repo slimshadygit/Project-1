@@ -1,10 +1,11 @@
+require('dotenv').config();
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   service: 'Gmail', // Use your email service
   auth: {
-    user: 'havocprem123@gmail.com', // Your email
-    pass: 'smfw cbwf aqsf aomm', // Your email password or app-specific password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 async function sendResetEmail(email, token) {
@@ -26,7 +27,7 @@ const sendWelcomeEmail = async (email, username) => {
   const mailOptions = {
     from: 'havocprem123@gmail.com',
     to: email,
-    subject: 'Welcome to Our App',
+    subject: 'Welcome to Our Website',
     text: `Hello ${username},\n\nWelcome to DREAMXCAREER! We are glad to have you.\n\nBest regards,\nYour App Team`,
   };
   await transporter.sendMail(mailOptions);
@@ -42,4 +43,16 @@ const sendLoginEmail = async (email, username) => {
   await transporter.sendMail(mailOptions);
 };
 
-module.exports = { sendResetEmail, sendWelcomeEmail, sendLoginEmail };
+
+const sendContactFormEmail = async (name, email, phone, message) => {
+  const mailOptions = {
+    from: 'havocprem123@gmail.com',
+    to: 'inboxofmani1@gmail.com',  // Send to yourself
+    subject: 'New Contact Form Submission DreamxCareer',
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+  };
+
+  await transporter.sendMail(mailOptions);
+};
+
+module.exports = { sendResetEmail, sendWelcomeEmail, sendLoginEmail ,sendContactFormEmail};
