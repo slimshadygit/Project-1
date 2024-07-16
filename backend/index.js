@@ -47,7 +47,7 @@ const transporter = nodemailer.createTransport({
 
 // Endpoint to handle contact form submissions
 app.post('/contactForm', async (req, res) => {
-  const { name, email, phone, message } = req.body;
+  const { name, email, phone, subject, message } = req.body;
   try {
     await sendContactFormEmail(name, email, phone, subject, message);
     res.status(200).json({ message: 'Message sent successfully' });
