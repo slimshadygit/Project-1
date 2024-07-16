@@ -44,7 +44,7 @@ const sendLoginEmail = async (email, username) => {
 };
 
 
-const sendContactFormEmail = async (name, email, phone, message) => {
+const sendContactFormEmail = async (name, email, subject, message) => {
   const mailOptions = {
     from: 'havocprem123@gmail.com',
     to: 'inboxofmani1@gmail.com',  // Send to yourself
