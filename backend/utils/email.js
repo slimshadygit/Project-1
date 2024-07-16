@@ -49,7 +49,7 @@ const sendContactFormEmail = async (name, email, phone, message) => {
     from: 'havocprem123@gmail.com',
     to: 'inboxofmani1@gmail.com',  // Send to yourself
     subject: 'New Contact Form Submission DreamxCareer',
-    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nsubject:${subject}\nMessage: ${message}`,
   };
 
   await transporter.sendMail(mailOptions);
