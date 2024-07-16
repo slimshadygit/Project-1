@@ -5,11 +5,10 @@ const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const counsellingFormRoutes = require('./routes/counsellingformRoutes'); 
 const adminRoutes = require('./routes/adminRoutes');
-
 const twilio = require('twilio');
-
 const cors = require('cors');
-
+const nodemailer = require('nodemailer');
+const { sendContactFormEmail } = require('./utils/email');
 
 
 const app = express();
@@ -36,6 +35,28 @@ const client = twilio(accountSid, authToken);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Nodemailer configuration
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+// Endpoint to handle contact form submissions
+app.post('/contactForm', async (req, res) => {
+  const { name, email, phone, message } = req.body;
+  try {
+    await sendContactFormEmail(name, email, phone, message);
+    res.status(200).json({ message: 'Message sent successfully' });
+  } catch (error) {
+    console.error('Error sending message:', error.message);
+    res.status(500).json({ error: 'Failed to send message' });
+  }
+});
+
 
 // Endpoint to send OTP
 app.post('/sendOTP', async (req, res) => {
